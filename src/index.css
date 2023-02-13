@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body, html {
-  background-color: #282c34;
+  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,8 @@ body, html {
   justify-content: center;
   width: 100%;
   color: white;
+  font-family: 'Rokkitt', serif;
+  font-size: 24px;
 }
 
 code {

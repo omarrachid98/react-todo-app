@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <img src={logo} className="App-logo" alt="logo" />
-      <h1 className="text-3xl font-bold underline">
+      <h1 className="text-3xl font-bold text-black">
         React To do App!
       </h1>
       <Form 
@@ -39,7 +39,7 @@ function App() {
           onRemoveItem={handleRemoveItems}
         />
       :
-      <p> Nessuna attività </p> 
+      <p className='text-black'> Nessuna attività </p> 
       }
     </div>
   );

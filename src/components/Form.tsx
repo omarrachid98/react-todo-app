@@ -5,7 +5,7 @@ const Form = ({name, onNameChange, onClickButton}) => {
         <div className='flex flex-row w-full justify-between gap-4'>
             <form className='w-full'>
                 <input 
-                    className='rounded-lg p-2 outline-none w-full text-black' 
+                    className='rounded-lg border-2 border-black p-2 outline-none w-full text-black' 
                     type="text" 
                     name='name' 
                     id='name' 

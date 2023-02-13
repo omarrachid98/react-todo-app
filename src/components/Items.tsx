@@ -9,10 +9,10 @@ const Items = ({lists, onRemoveItem}) => {
     }
 
     return (
-        <div className='flex flex-col items-center justify-center w-full gap-4'>
+        <div className='flex flex-col items-center justify-center w-full gap-6 border-2 rounded-md border-black p-4'>
             {lists.map((list, index) => {
                 return (
-                    <div key={index} className='bg-gray-300 p-2 rounded-md w-full text-black'>
+                    <div key={index} className='rounded-md w-full text-black'>
                         <div className='flex flex-row items-center justify-start gap-2'>
                             <input 
                                 type="checkbox" 
