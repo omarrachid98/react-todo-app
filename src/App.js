@@ -8,13 +8,20 @@ function App() {
 
   const [name, setName] = useState('');
   const [items, setItems] = useState([]);
+  const [messages, setMessages] = useState('');
   
   const handleNameChange = (e) => {
     setName(e.target.value)
   }
 
   const handleButtonClick = () => {
+    if(!name) {
+      setMessages(`Devi prima inserire l'attività!`);
+      return;
+    }
+
     setItems([...items, name]);
+    setMessages('');
     setName('');
   }
 
@@ -33,11 +40,16 @@ function App() {
         onNameChange={handleNameChange}
         onClickButton={handleButtonClick}
       />
+      {messages && (
+         <p className='text-red-900 font-bold'> {messages} </p> 
+      )}
       {items.length > 0 ?
+      <>
         <Items 
           lists={items}
           onRemoveItem={handleRemoveItems}
         />
+        </>
       :
       <p className='text-black'> Nessuna attività </p> 
       }

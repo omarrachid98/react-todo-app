@@ -2,37 +2,50 @@ import { useState } from "react";
 import trash from '../svg/trash.svg'
 
 const Items = ({lists, onRemoveItem}) => {
-    const [isChecked, setIsChecked] = useState(false);
-    const [status, setStatus] = useState('no_status');
+    const [checkboxes, setCheckboxes] = useState(lists.map(() => false));
     
     const ArrayStatus = [
         {
+            id: 0,
             key: 'no_status',
             value: 'Nessuno stato'
         },
         {
+            id: 1,
             key: 'in_corso',
             value: 'In corso'
         },
         {
+            id: 2,
             key: 'completato',
             value: 'Completato'
         }
     ]
 
+    //we  need to update the status state to an array of statuses for each item, which is initially set to an array of the first status:
+    const [status, setStatus] = useState(lists.map(() => ArrayStatus[0].key));
+
     const colorSelect = {
         completato: 'bg-green-600',
-        in_corso: 'bg-yellow-400',
-        no_status : 'bg-slate-400'
+        in_corso: 'bg-yellow-400'
     }
 
-    const handleCheckboxClick = () => {
-        setIsChecked(!isChecked)
+    const handleCheckboxClick = (isChecked, index) => {
+        setCheckboxes((prevChecked) => {
+            const updateChecked = [...prevChecked];
+            updateChecked[index] = isChecked;
+            return updateChecked;
+        })
     }
 
-    const onSelectChange = (e) => {
-        setStatus(e.target.value);
-    }
+    const onSelectChange = (e, index) => {
+        const selectedStatus = e.target.value;
+        setStatus((prevStatus) => {
+            const updatedStatus = [...prevStatus];
+            updatedStatus[index] = selectedStatus;
+            return updatedStatus;
+        });
+      };
 
     return (
         <div className='flex flex-col items-center justify-center w-full gap-4 border-2 rounded-md border-black p-4'>
@@ -44,20 +57,25 @@ const Items = ({lists, onRemoveItem}) => {
                                 type="checkbox" 
                                 name="checkbox" 
                                 id="checkbox" 
-                                checked={isChecked} 
-                                onChange={handleCheckboxClick} 
+                                checked={checkboxes[index] || status[index] === 'completato'} 
+                                onChange={(e) => handleCheckboxClick(e.target.checked, index)} 
                                 className='cursor-pointer' 
                             />
-                            <p className={isChecked ? 'line-through' : ''}>{list}</p>
-                            <div className='flex flex-row items-start justify-start ml-auto gap-6'>
+                            <p className={(checkboxes[index] || status[index] === 'completato') ? 'line-through' : ''}>{list}</p>
+                            <div className='flex flex-row items-end justify-end ml-auto gap-6'>
                                 <div className='flex flex-col'>
-                                    <label htmlFor="status"> Stato attività </label>
-                                    <select name="status" onChange={onSelectChange} id="status" className={`rounded-md p-1 border-2 border-black cursor-pointer ${colorSelect[status]}`}>
-                                        {ArrayStatus.map((stato, index) => {
-                                            return (
-                                                <option key={index} value={stato.key}> {stato.value} </option>
-                                            )
-                                        })}
+                                    <label htmlFor={`status-${list}`}> Stato attività </label>
+                                    <select 
+                                        name={`${list}`} 
+                                        onChange={(e) => onSelectChange(e, index)} 
+                                        id={`status-${list}`} 
+                                        className={`rounded-md p-1 border-2 border-black cursor-pointer ${colorSelect[status[index]]}`}
+                                    >
+                                    {ArrayStatus.map((stato, index) => {
+                                        return (
+                                            <option key={index} value={stato.key}> {stato.value} </option>
+                                        )
+                                    })}
                                     </select>
                                 </div>
                                 <img 
