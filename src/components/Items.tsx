@@ -36,6 +36,12 @@ const Items = ({lists, onRemoveItem}) => {
             updateChecked[index] = isChecked;
             return updateChecked;
         })
+
+        setStatus((prevStatus) => {
+            const updatedStatus = [...prevStatus];
+            updatedStatus[index] = isChecked ? 'completato' : 'in_corso';
+            return updatedStatus;
+        });
     }
 
     const onSelectChange = (e, index) => {
@@ -70,6 +76,7 @@ const Items = ({lists, onRemoveItem}) => {
                                         onChange={(e) => onSelectChange(e, index)} 
                                         id={`status-${list}`} 
                                         className={`rounded-md p-1 border-2 border-black cursor-pointer ${colorSelect[status[index]]}`}
+                                        value={status[index]}
                                     >
                                     {ArrayStatus.map((stato, index) => {
                                         return (
