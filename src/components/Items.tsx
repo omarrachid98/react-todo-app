@@ -1,9 +1,9 @@
 import { useState } from "react";
 import trash from '../svg/trash.svg'
 
-const Items = ({lists, onRemoveItem}) => {
+const Items = ({lists, onRemoveItem, filter}) => {
     const [checkboxes, setCheckboxes] = useState(lists.map(() => false));
-    
+        
     const ArrayStatus = [
         {
             id: 0,
@@ -51,11 +51,12 @@ const Items = ({lists, onRemoveItem}) => {
             updatedStatus[index] = selectedStatus;
             return updatedStatus;
         });
-      };
+    };
 
     return (
         <div className='flex flex-col items-center justify-center w-full gap-4 border-2 rounded-md border-black p-4'>
-            {lists.map((list, index) => {
+            {lists.length > 0 ?
+                lists.map((list, index) => {
                 return (
                     <div key={index} className='pb-4 w-full border-b-2 last:border-b-0 rounded-0 text-black'>
                         <div className='flex flex-row items-center justify-start gap-2'>
@@ -97,7 +98,9 @@ const Items = ({lists, onRemoveItem}) => {
                         </div>
                     </div>
                 )
-            })}
+            }) :
+            <p> Nessuno elemento trovato </p>
+            }
         </div>
     )
 }
