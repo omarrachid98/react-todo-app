@@ -22,13 +22,14 @@ function App() {
       return;
     }
 
-    setItems([...items, name]);
+    setItems([...items, {name: name, checked: false, status: 'no_status'}]);
     setMessages('');
     setName('');
   }
 
   const handleRemoveItems = (value) => {
-    setItems(items.filter(item => item !== value));
+    console.log(value)
+    setItems(items.filter(item => item.name !== value));
   }
   
   return (
@@ -47,13 +48,14 @@ function App() {
       )}
       {items.length > 0 ?
       <>
-        {/* <Filters 
-          setFilters={setFilters}
-        /> */}
+        <Filters 
+          setFilter={setFilters}
+        />
         <Items 
           lists={items}
           onRemoveItem={handleRemoveItems}
           filter={filters}
+          setLists={setItems}
         />
         </>
       :
