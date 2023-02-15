@@ -106,7 +106,7 @@ input:checked ~ .checkbox {
   background-color: white;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .container-filter{
     overflow-x: scroll;
     width: 300px;

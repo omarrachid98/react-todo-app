@@ -2,7 +2,7 @@
 
 ## Getting started
 
-You can view a live demo over at []
+You can view a live demo over at [https://react-todo-app-swart.vercel.app]
 
 To get the frontend running locally:
 
