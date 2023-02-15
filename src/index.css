@@ -53,3 +53,32 @@ li:hover::after{
   transform-origin: left;
 }
 
+input[type='checkbox'] {
+  display: none;
+}
+
+.label-checkbox{
+  width: 50px;
+  display: block;
+}
+
+.checkbox{
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 2px;
+  border: 3px solid #3b3b3b;
+  cursor: pointer;
+  transition: 0.375s
+}
+
+input:checked ~ .checkbox {
+  rotate: 45deg;
+  translate: 15px -8px;
+  width: 20px;
+  border-color: #1cc39b;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-radius: 0;
+}
+

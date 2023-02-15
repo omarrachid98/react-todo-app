@@ -60,14 +60,17 @@ const Items = ({lists, onRemoveItem, setLists, filter}) => {
                 return (
                     <div key={index} className='pb-4 w-full border-b-2 last:border-b-0 rounded-0 text-black'>
                         <div className='flex flex-row items-center justify-start gap-2'>
-                            <input 
-                                type="checkbox" 
-                                name="checkbox" 
-                                id="checkbox" 
-                                checked={list.checked} 
-                                onChange={(e) => handleCheckboxClick(e.target.checked, index)} 
-                                className='cursor-pointer' 
-                            />
+                            <label className='label-checkbox' htmlFor="checkbox">
+                                <input 
+                                    type="checkbox" 
+                                    name="checkbox" 
+                                    id="checkbox" 
+                                    checked={list.checked} 
+                                    onChange={(e) => handleCheckboxClick(e.target.checked, index)} 
+                                    className='checkbox cursor-pointer' 
+                                />
+                                <span className='checkbox'></span>
+                            </label>
                             <p className={list.checked ? 'line-through' : ''}>{list.name}</p>
                             <div className='flex flex-row items-end justify-end ml-auto gap-6'>
                                 <div className='flex flex-col'>
