@@ -13,11 +13,11 @@ const Form = ({name, onNameChange, onClickButton}) => {
                     onChange={onNameChange} 
                     placeholder=" "
                 />
-                <label htmlFor="name" className="placeholder">Aggiungi attività</label>
+                <label htmlFor="name" className="placeholder">Aggiungi..</label>
             </div>
             <Button
                 bgColor='bg-sky-600'
-                textColor='text-red'
+                textColor='text-white'
                 onClickButton={onClickButton}
             > Aggiungi </Button>
         </div>

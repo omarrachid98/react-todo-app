@@ -17,18 +17,31 @@ function App() {
   }
 
   const handleButtonClick = () => {
-    if(!name) {
-      setMessages(`Devi prima inserire l'attività!`);
+    if(!onCheckName(name)) {
       return;
     }
-
     setItems([...items, {name: name, checked: false, status: 'no_status'}]);
     setMessages('');
     setName('');
+
   }
 
   const handleRemoveItems = (value) => {
     setItems(items.filter(item => item.name !== value));
+  }
+
+  const onCheckName = (name) => {
+    let is_ok = true;
+    if(!name) {
+      setMessages(`Devi prima inserire l'attività!`);
+      is_ok = false;
+    }
+    
+    // if(items.includes(name)) {
+    //   setMessages(`Hai già inserito questa attività`);
+    //   is_ok = false;
+    // }
+    return is_ok;
   }
   
   return (
