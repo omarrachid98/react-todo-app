@@ -64,7 +64,7 @@ const Items = ({lists, onRemoveItem, setLists, filter, setMessages}) => {
                 filteredArray.map((list) => {
                 return (
                     <div key={list.name} className='pb-4 w-full border-b-2 last:border-b-0 rounded-0 text-black'>
-                        <div className='flex flex-row items-center justify-start gap-2'>
+                        <div className='flex flex-wrap flex-row items-center justify-start gap-2'>
                             <input 
                                 type="checkbox" 
                                 id="checkbox" 
@@ -73,7 +73,7 @@ const Items = ({lists, onRemoveItem, setLists, filter, setMessages}) => {
                                 className='checkbox cursor-pointer' 
                             />
                             <p className={list.checked ? 'line-through' : ''}>{list.name}</p>
-                            <div className='flex flex-row items-end justify-end ml-auto gap-6'>
+                            <div className='flex flex-row items-end justify-end md:ml-auto gap-6'>
                                 <div className='flex flex-col'>
                                     <label htmlFor={`status-${list}`}> Stato attività </label>
                                     <select 

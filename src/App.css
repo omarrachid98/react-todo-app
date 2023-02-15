@@ -10,6 +10,14 @@
   padding-right: 32px;
 }
 
+@media screen and (max-width: 768px) {
+  .App{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

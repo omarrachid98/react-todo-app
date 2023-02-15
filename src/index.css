@@ -12,7 +12,7 @@ body, html {
   color: black;
   font-family: 'Rokkitt', serif;
   font-size: 24px;
-  background-color: #white;
+  background-color: white;
 }
 
 #root{
@@ -104,4 +104,18 @@ input:checked ~ .checkbox {
 .input-activity:focus + .placeholder, .input-activity:not(:placeholder-shown) + .placeholder {
   top: -10px;
   background-color: white;
+}
+
+@media screen and (max-width: 768px) {
+  .container-filter{
+    overflow-x: scroll;
+    width: 300px;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 24px;
+  }
+
+  .container .filter-item{
+    scroll-snap-align: start;
+  }
+
 }
