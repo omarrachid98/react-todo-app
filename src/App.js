@@ -28,7 +28,6 @@ function App() {
   }
 
   const handleRemoveItems = (value) => {
-    console.log(value)
     setItems(items.filter(item => item.name !== value));
   }
   
@@ -50,6 +49,7 @@ function App() {
       <>
         <Filters 
           setFilter={setFilters}
+          filters={filters}
         />
         <Items 
           lists={items}

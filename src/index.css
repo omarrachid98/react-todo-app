@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 body, html {
-  background-color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -25,3 +24,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+li{
+  position: relative;
+  display: block;
+  transition: .5s;
+}
+
+li::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 3px;
+  top: 100%;
+  left: 0;
+  transition: transform .5s;
+  transform: scaleX(0);
+  transform-origin: right;
+  background-color: rgb(2 132 199 / var(--tw-bg-opacity));;
+}
+
+li:hover{
+  color: #95a5a6;
+}
+
+li:hover::after{
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
