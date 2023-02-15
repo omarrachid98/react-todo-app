@@ -3,17 +3,18 @@ import Button from "./Button.tsx"
 const Form = ({name, onNameChange, onClickButton}) => {
     return (
         <div className='flex flex-row w-full justify-between gap-4'>
-            <form className='w-full'>
+            <div className='input-group w-full'>
                 <input 
-                    className='rounded-lg border-2 border-black p-2 outline-none w-full text-black' 
+                    className='input-activity w-full' 
                     type="text" 
                     name='name' 
                     id='name' 
                     value={name} 
                     onChange={onNameChange} 
-                    placeholder='Aggiungi attività' 
+                    placeholder=" "
                 />
-            </form>
+                <label htmlFor="name" className="placeholder">Aggiungi attività</label>
+            </div>
             <Button
                 bgColor='bg-sky-600'
                 textColor='text-red'

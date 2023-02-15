@@ -12,6 +12,7 @@ body, html {
   color: black;
   font-family: 'Rokkitt', serif;
   font-size: 24px;
+  background-color: #white;
 }
 
 #root{
@@ -53,14 +54,7 @@ li:hover::after{
   transform-origin: left;
 }
 
-input[type='checkbox'] {
-  display: none;
-}
-
-.label-checkbox{
-  width: 50px;
-  display: block;
-}
+/* Custom checkbox */
 
 .checkbox{
   display: block;
@@ -82,3 +76,32 @@ input:checked ~ .checkbox {
   border-radius: 0;
 }
 
+/* Floating placeholder */
+.input-group{
+  position: relative;
+}
+
+.input-activity{
+  padding: 10px;
+  background-color: white;
+  border-radius: 2px;
+  outline: none;
+  color: #444444;
+  border: 1px solid #0da2ff;
+}
+
+.placeholder{
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  font-size: 14px;
+  padding: 0px 5px;
+  color: #0da2ff;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.input-activity:focus + .placeholder, .input-activity:not(:placeholder-shown) + .placeholder {
+  top: -10px;
+  background-color: white;
+}
