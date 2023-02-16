@@ -87,7 +87,7 @@ input:checked ~ .checkbox {
   border-radius: 2px;
   outline: none;
   color: #444444;
-  border: 1px solid #0da2ff;
+  border: 2px solid #0da2ff;
 }
 
 .placeholder{

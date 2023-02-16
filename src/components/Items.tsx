@@ -59,7 +59,7 @@ const Items = ({lists, onRemoveItem, setLists, filter, setMessages}) => {
       }, [filter, lists])
 
     return (
-        <div className='flex flex-col items-center justify-center w-full gap-4 border-2 rounded-md border-black p-4'>
+        <div className='flex flex-col items-center justify-center w-full gap-4 border-2 rounded-md border-[#0da2ff] p-4'>
             {filteredArray.length > 0 ?
                 filteredArray.map((list) => {
                 return (
@@ -80,7 +80,7 @@ const Items = ({lists, onRemoveItem, setLists, filter, setMessages}) => {
                                         name={`${list.name}`} 
                                         onChange={(e) => onSelectChange(e, list.name)} 
                                         id={`status-${list.name}`} 
-                                        className={`rounded-md p-1 border-2 border-black cursor-pointer ${colorSelect[list.status]}`}
+                                        className={`rounded-md p-1 border-2 outline-none border-[#0da2ff] cursor-pointer ${colorSelect[list.status]}`}
                                         value={list.status}
                                     >
                                     {ArrayStatus.map((stato, index) => {
@@ -89,14 +89,16 @@ const Items = ({lists, onRemoveItem, setLists, filter, setMessages}) => {
                                         )})}
                                     </select>
                                 </div>
-                                <img 
-                                    src={trash} 
-                                    alt="trash" 
-                                    width='40' 
-                                    height='40' 
-                                    className='cursor-pointer' 
-                                    onClick={() => onRemoveItem(list.name)}
-                                />
+                                <div className='p-2'>
+                                    <img 
+                                        src={trash} 
+                                        alt="trash" 
+                                        width='40' 
+                                        height='40' 
+                                        className='cursor-pointer hover:scale-125' 
+                                        onClick={() => onRemoveItem(list.name)}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>

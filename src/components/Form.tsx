@@ -2,8 +2,8 @@ import Button from "./Button.tsx"
 
 const Form = ({name, onNameChange, onClickButton}) => {
     return (
-        <div className='flex flex-row w-full justify-between gap-4'>
-            <div className='input-group w-full'>
+        <form onSubmit={onClickButton} className='input-group w-full'>
+            <div className='flex flex-row w-full justify-between gap-4'>
                 <input 
                     className='input-activity w-full' 
                     type="text" 
@@ -14,13 +14,13 @@ const Form = ({name, onNameChange, onClickButton}) => {
                     placeholder=" "
                 />
                 <label htmlFor="name" className="placeholder">Aggiungi..</label>
+                <Button
+                    bgColor='bg-sky-600'
+                    textColor='text-white'
+                    > Aggiungi 
+                </Button>
             </div>
-            <Button
-                bgColor='bg-sky-600'
-                textColor='text-white'
-                onClickButton={onClickButton}
-            > Aggiungi </Button>
-        </div>
+        </form>
     )
 }
 

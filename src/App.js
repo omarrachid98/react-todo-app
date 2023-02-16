@@ -16,7 +16,8 @@ function App() {
     setName(e.target.value)
   }
 
-  const handleButtonClick = () => {
+  const handleButtonClick = (e) => {
+    e.preventDefault();
     if(!onCheckName(name)) {
       return;
     }
@@ -45,36 +46,36 @@ function App() {
   }
   
   return (
-    <div className="App">
-      <img src={logo} className="App-logo" alt="logo" />
-      <h1 className="text-3xl font-bold text-black text-center">
-        React To do App!
-      </h1>
-      <Form 
-        name={name}
-        onNameChange={handleNameChange}
-        onClickButton={handleButtonClick}
-      />
-      {messages && (
-         <p className='text-red-900 font-bold'> {messages} </p> 
-      )}
-      {items.length > 0 ?
-      <>
-        <Filters 
-          setFilter={setFilters}
-          filters={filters}
+      <div className="App">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h1 className="text-3xl font-bold text-black text-center">
+          React To do App!
+        </h1>
+        <Form 
+          name={name}
+          onNameChange={handleNameChange}
+          onClickButton={handleButtonClick}
         />
-        <Items 
-          lists={items}
-          onRemoveItem={handleRemoveItems}
-          filter={filters}
-          setLists={setItems}
-        />
-        </>
-      :
-      <p className='text-black'> Nessuna attività </p> 
-      }
-    </div>
+        {messages && (
+          <p className='text-red-900 font-bold'> {messages} </p> 
+        )}
+        {items.length > 0 ?
+        <>
+          <Filters 
+            setFilter={setFilters}
+            filters={filters}
+          />
+          <Items 
+            lists={items}
+            onRemoveItem={handleRemoveItems}
+            filter={filters}
+            setLists={setItems}
+          />
+          </>
+        :
+        <p className='text-black'> Nessuna attività </p> 
+        }
+      </div>
   );
 }
 
