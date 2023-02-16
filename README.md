@@ -1,6 +1,6 @@
 # React to do app
 
-## Getting started
+## Getting started 
 
 You can view a live demo over at [https://react-todo-app-swart.vercel.app]
 
